@@ -1,5 +1,6 @@
 # Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino
-### AIM : To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
+### AIM : 
+        To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
 
 ### Components Required:
 •	Arduino UNO board
@@ -28,39 +29,38 @@ As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is f
 ### PRGORAM 
 ```
 #define m1 2
-
 #define m2 3
-
+#define m3 13
+int buttonState = 0;
 void setup()
-
 {
-
   pinMode(m1, OUTPUT);
-
   pinMode(m2, OUTPUT);
-
+  pinMode(m3, OUTPUT);
+  
 }
 
 void loop()
-
 {
-
-  digitalWrite(m1, HIGH);
-
-  digitalWrite(m2, LOW);
-
-  delay(10000);
-
+  buttonState = digitalRead(13);
+  if (buttonState == HIGH) {
+     digitalWrite(m1, HIGH);
+ 	 digitalWrite(m2, LOW);
+     
+  }
+  else{
+     digitalWrite(m1, LOW);
+  	 digitalWrite(m2, HIGH);
+  }
+  delay(1000);
+  
+  
 }
-
 ```
 
 ### OUTPUT
+![](https://github.com/praga-16/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/EX6.png)
 
-### GRAPH AND TABULATION 
-
-
-
-
-### RESULTS AND DISCUSSION 
+### RESULTS 
+   Thus we have controled the speed and the direction of a DC motor using L293D driver ic( H- bridge)
 
